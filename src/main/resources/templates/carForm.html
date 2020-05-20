@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+</head>
+<body>
+    <form action="#" th:action="@{/carForm}" th:object="${car}" method="post">
+        Car :
+        <input type = "text" th:field ="*{name}" ><br>
+        <span th:if="${#fields.hasErrors('name')}"
+              th:errors="*{name}">
+        </span>
+        Type :
+        <input type ="text" th:field ="*{type}"><br>
+        <span th:if="${#fields.hasErrors('type')}"
+              th:errors="*{type}">
+        </span>
+        Description :
+        <input type ="text" th:field="*{description}">
+        <span th:if="${#fields.hasErrors('description')}"
+              th:errors="*{description}"></span>
+
+        <input type ="submit" value ="Submit">
+    </form>
+</body>
+</html>
